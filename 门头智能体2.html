@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-  <title>商业门头设计AI · 自由选择版 (颜色增强)</title>
+  <title>商业门头设计AI · 副标题比例锁定版</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -93,12 +93,12 @@
 <body>
 <div class="header">
   <h1>✨ 商业门头设计AI智能体</h1>
-  <p>自由选择 · 颜色增强 · 未选不输出 · 稳定20组</p>
+  <p>自由选择 · 副标题比例锁定 · 层数可选 · 稳定20组</p>
 </div>
 
 <div class="main-layout">
   <div class="left-panel">
-    <div class="brand-row"><label>🏷️ 品牌</label><input id="brandInput" type="text" placeholder="品牌名称（必填，用于生成）"></div>
+    <div class="brand-row"><label>🏷️ 品牌</label><input id="brandInput" type="text" placeholder="品牌名称（必填）"></div>
     <div class="subtitle-row"><label>📝 副标题</label><input id="subtitleInput" type="text" placeholder="自定义副标题（可留空）"></div>
 
     <div class="category-section">
@@ -146,47 +146,37 @@
       </div>
     </div>
 
-    <!-- 颜色选择（增强版） -->
     <div class="category-section">
       <div class="section-title">🎨 颜色选择 <span>可选</span></div>
       <div id="colorContainer" class="style-btn-group">
-        <button class="option-btn" data-value="暖黄+红">🔥 暖黄+红</button>
-        <button class="option-btn" data-value="橙+深棕">🍊 橙+深棕</button>
-        <button class="option-btn" data-value="粉+玫瑰金">🌸 粉+玫瑰金</button>
-        <button class="option-btn" data-value="黑白灰">⬛ 黑白灰</button>
-        <button class="option-btn" data-value="霓虹紫+黑">🟣 霓虹紫+黑</button>
-        <button class="option-btn" data-value="蓝白清爽">🔵 蓝白清爽</button>
-        <button class="option-btn" data-value="中国红+金">🀄 中国红+金</button>
-        <button class="option-btn" data-value="原木+白">🪵 原木+白</button>
-        <button class="option-btn" data-value="莫兰迪色系">🎨 莫兰迪色系</button>
-        <button class="option-btn" data-value="金属灰+亮橙">⚙️ 金属灰+亮橙</button>
-        <button class="option-btn" data-value="玫瑰金+白">🌹 玫瑰金+白</button>
-        <button class="option-btn" data-value="香槟金+米">🥂 香槟金+米</button>
-        <button class="option-btn" data-value="炭黑+亮银">🖤 炭黑+亮银</button>
-        <button class="option-btn" data-value="象牙白+浅灰">🤍 象牙白+浅灰</button>
-        <button class="option-btn" data-value="墨绿+金">🌲 墨绿+金</button>
-        <button class="option-btn" data-value="深蓝+银">💙 深蓝+银</button>
+        <button class="option-btn" data-value="暖黄+红">🔥 暖黄+红</button><button class="option-btn" data-value="橙+深棕">🍊 橙+深棕</button><button class="option-btn" data-value="粉+玫瑰金">🌸 粉+玫瑰金</button><button class="option-btn" data-value="黑白灰">⬛ 黑白灰</button><button class="option-btn" data-value="霓虹紫+黑">🟣 霓虹紫+黑</button><button class="option-btn" data-value="蓝白清爽">🔵 蓝白清爽</button><button class="option-btn" data-value="中国红+金">🀄 中国红+金</button><button class="option-btn" data-value="原木+白">🪵 原木+白</button><button class="option-btn" data-value="莫兰迪色系">🎨 莫兰迪色系</button><button class="option-btn" data-value="金属灰+亮橙">⚙️ 金属灰+亮橙</button><button class="option-btn" data-value="玫瑰金+白">🌹 玫瑰金+白</button><button class="option-btn" data-value="香槟金+米">🥂 香槟金+米</button><button class="option-btn" data-value="炭黑+亮银">🖤 炭黑+亮银</button><button class="option-btn" data-value="象牙白+浅灰">🤍 象牙白+浅灰</button><button class="option-btn" data-value="墨绿+金">🌲 墨绿+金</button><button class="option-btn" data-value="深蓝+银">💙 深蓝+银</button>
       </div>
     </div>
 
     <div class="category-section">
       <div class="section-title">📐 门头布局 <span>可选</span></div>
       <div class="style-btn-group" id="layoutGroup">
-        <button class="option-btn" data-value="单开间门头">🚪 单开间</button>
-        <button class="option-btn" data-value="双开间门头">🚪🚪 双开间</button>
-        <button class="option-btn" data-value="三开间门头">🚪🚪🚪 三开间</button>
-        <button class="option-btn" data-value="横向超宽">📏 横向超宽</button>
-        <button class="option-btn" data-value="竖向">📐 竖向</button>
-        <button class="option-btn" data-value="多层">📚 多层</button>
-        <button class="option-btn" data-value="叠加">🪜 叠加</button>
+        <button class="option-btn" data-value="单开间门头">🚪 单开间</button><button class="option-btn" data-value="双开间门头">🚪🚪 双开间</button><button class="option-btn" data-value="三开间门头">🚪🚪🚪 三开间</button><button class="option-btn" data-value="横向超宽">📏 横向超宽</button><button class="option-btn" data-value="竖向">📐 竖向</button><button class="option-btn" data-value="多层">📚 多层</button><button class="option-btn" data-value="叠加">🪜 叠加</button>
+      </div>
+    </div>
+
+    <!-- 新增门头层数选择 -->
+    <div class="category-section">
+      <div class="section-title">🏢 门头层数 <span>可选</span></div>
+      <div class="style-btn-group" id="layerGroup">
+        <button class="option-btn" data-value="一层">1️⃣ 一层</button>
+        <button class="option-btn" data-value="二层">2️⃣ 二层</button>
+        <button class="option-btn" data-value="三层">3️⃣ 三层</button>
+        <button class="option-btn" data-value="四层">4️⃣ 四层</button>
+        <button class="option-btn" data-value="五层">5️⃣ 五层</button>
+        <button class="option-btn" data-value="六层">6️⃣ 六层</button>
       </div>
     </div>
 
     <div class="category-section">
       <div class="section-title">🌗 时间场景 <span>可选</span></div>
       <div class="style-btn-group" id="timeGroup">
-        <button class="option-btn" data-value="白天">☀️ 白天</button>
-        <button class="option-btn" data-value="黑夜">🌙 黑夜</button>
+        <button class="option-btn" data-value="白天">☀️ 白天</button><button class="option-btn" data-value="黑夜">🌙 黑夜</button>
       </div>
     </div>
 
@@ -294,10 +284,10 @@
 
     const r = arr => arr[Math.floor(Math.random() * arr.length)];
 
-    function buildPrompt(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, time, district, otherDesc) {
+    function buildPrompt(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, layer, time, district, otherDesc) {
       let prompt = `【商业门头设计】\n`;
       if (brand) prompt += `\n品牌：${brand}`;
-      if (subtitle) prompt += ` · ${subtitle}`;
+      if (subtitle) prompt += `\n副标题：${subtitle}（严格比例：字号为品牌名称的1/2，位于品牌名称正下方，禁止自动调整大小）`;
       if (industry.value) prompt += `\n行业：${industry.parent}·${industry.value}`;
       if (style) prompt += `\n风格：${style}`;
       const scene = district === '不限' ? r(system.场景) : district;
@@ -312,6 +302,7 @@
         prompt += `\n布局：${layout}`;
         if (layoutDesc[layout]) prompt += `\n布局说明：${layoutDesc[layout]}`;
       }
+      if (layer) prompt += `\n层数：${layer}`;
       if (time) {
         prompt += `\n时间：${time}`;
         if (time === '白天') prompt += `\n光照：自然光照明，通透日景效果`;
@@ -327,12 +318,12 @@
       return prompt;
     }
 
-    function generate20(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, time, district, otherDesc) {
+    function generate20(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, layer, time, district, otherDesc) {
       const set = new Set();
       const result = [];
       let safety = 0;
       while (result.length < 20 && safety < 800) {
-        const prompt = buildPrompt(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, time, district, otherDesc);
+        const prompt = buildPrompt(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, layer, time, district, otherDesc);
         if (!set.has(prompt)) { set.add(prompt); result.push(prompt); }
         safety++;
       }
@@ -352,6 +343,7 @@
       const fontMaterial = getSelectedSubValue('fontMaterialContainer').value;
       const color = getSelectedValue('colorContainer');
       const layout = getSelectedValue('layoutGroup');
+      const layer = getSelectedValue('layerGroup');
       const time = getSelectedValue('timeGroup');
 
       const generateBtn = document.getElementById('generateBtn');
@@ -361,7 +353,7 @@
 
       setTimeout(() => {
         try {
-          const prompts = generate20(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, time, district, otherDesc);
+          const prompts = generate20(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, layer, time, district, otherDesc);
           window.DATA = prompts;
           const resultsGrid = document.getElementById('resultsGrid');
           resultsGrid.innerHTML = '';
@@ -373,6 +365,7 @@
             if (materialInfo.values.length) badges += `<span class="card-badge green">${materialInfo.values.join('+')}</span>`;
             if (style) badges += `<span class="card-badge">${style}</span>`;
             if (layout) badges += `<span class="card-badge">${layout}</span>`;
+            if (layer) badges += `<span class="card-badge">${layer}</span>`;
             if (time) badges += `<span class="card-badge">${time}</span>`;
             if (color) badges += `<span class="card-badge">${color}</span>`;
             card.innerHTML = `
@@ -421,6 +414,7 @@
     initSingleSelect('colorContainer');
     initSingleSelect('styleGroup');
     initSingleSelect('layoutGroup');
+    initSingleSelect('layerGroup'); // 新增层数组
     initSingleSelect('timeGroup');
 
     document.getElementById('generateBtn').addEventListener('click', generatePrompts);
