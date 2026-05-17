@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>商业门头设计AI · 多选优化版</title>
+    <title>商业门头设计AI · 异形门头增强版</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -21,7 +21,7 @@
         .header p { color: #7b6b82; font-size: 0.95rem; font-weight: 500; }
         .main-layout { display: flex; gap: 20px; width: 100%; max-width: 1400px; align-items: flex-start; }
         .left-panel {
-            flex: 1; max-width: 600px;
+            flex: 1; max-width: 650px;
             background: rgba(255,255,255,0.7); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             border-radius: 32px; padding: 30px 28px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,255,255,0.5) inset;
@@ -93,7 +93,7 @@
 <body>
 <div class="header">
     <h1>✨ 商业门头设计AI智能体</h1>
-    <p>行业/风格/字体/颜色均支持多选 · 未选不输出 · 稳定20组</p>
+    <p>异形门头分类 · 多选组合 · 副标题比例锁定 · 稳定20组</p>
 </div>
 
 <div class="main-layout">
@@ -121,6 +121,31 @@
             <div class="section-title">🎨 门头风格 / 样式 <span>可选多选</span></div>
             <div class="style-btn-group" id="styleGroup">
                 <button class="option-btn" data-value="网红门头">📸 网红门头</button><button class="option-btn" data-value="现代简约">▫️ 现代简约</button><button class="option-btn" data-value="现代传统">🏮 现代传统</button><button class="option-btn" data-value="国潮风">🐉 国潮风</button><button class="option-btn" data-value="轻奢风格">💎 轻奢风格</button><button class="option-btn" data-value="赛博朋克">🤖 赛博朋克</button><button class="option-btn" data-value="卡通风格">🐱 卡通风格</button><button class="option-btn" data-value="韩式清新">🌸 韩式清新</button><button class="option-btn" data-value="科技风格">🔬 科技风格</button><button class="option-btn" data-value="欧式风格">🏛️ 欧式风格</button><button class="option-btn" data-value="泰式东南亚">🌴 泰式东南亚</button><button class="option-btn" data-value="新中式">🍃 新中式</button><button class="option-btn" data-value="原木风格">🪵 原木风格</button><button class="option-btn" data-value="灯箱一体式">💠 灯箱一体式</button><button class="option-btn" data-value="异形创意">🌀 异形创意</button><button class="option-btn" data-value="多层叠加">📚 多层叠加</button><button class="option-btn" data-value="转角式创意">↗️ 转角式创意</button><button class="option-btn" data-value="格栅造型">📏 格栅造型</button><button class="option-btn" data-value="立体悬挑式">🧩 立体悬挑式</button><button class="option-btn" data-value="平面招牌式">🪧 平面招牌式</button><button class="option-btn" data-value="中式屋檐">🏯 中式屋檐</button>
+            </div>
+        </div>
+
+        <!-- 异形门头核心分类（9大类/100+子类，多选） -->
+        <div class="category-section">
+            <div class="section-title">🎭 异形门头核心分类 <span>可选多选</span></div>
+            <div id="shapeContainer">
+                <!-- 一、常见类型 -->
+                <div class="industry-block"><span class="industry-label">📐 常见类型</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="圆形门头" data-parent="常见类型">圆形门头</button><button class="option-btn sub-btn" data-value="半圆拱形门头" data-parent="常见类型">半圆拱形门头</button><button class="option-btn sub-btn" data-value="波浪曲线门头" data-parent="常见类型">波浪曲线门头</button><button class="option-btn sub-btn" data-value="不规则切角门头" data-parent="常见类型">不规则切角门头</button><button class="option-btn sub-btn" data-value="三角结构门头" data-parent="常见类型">三角结构门头</button><button class="option-btn sub-btn" data-value="梯形门头" data-parent="常见类型">梯形门头</button><button class="option-btn sub-btn" data-value="弧面包裹门头" data-parent="常见类型">弧面包裹门头</button><button class="option-btn sub-btn" data-value="悬浮门头" data-parent="常见类型">悬浮门头</button><button class="option-btn sub-btn" data-value="几何拼接门头" data-parent="常见类型">几何拼接门头</button><button class="option-btn sub-btn" data-value="破碎结构门头" data-parent="常见类型">破碎结构门头</button><button class="option-btn sub-btn" data-value="镂空切割门头" data-parent="常见类型">镂空切割门头</button><button class="option-btn sub-btn" data-value="折纸结构门头" data-parent="常见类型">折纸结构门头</button><button class="option-btn sub-btn" data-value="立体穿插门头" data-parent="常见类型">立体穿插门头</button><button class="option-btn sub-btn" data-value="流线型门头" data-parent="常见类型">流线型门头</button><button class="option-btn sub-btn" data-value="UFO飞船型门头" data-parent="常见类型">UFO飞船型门头</button><button class="option-btn sub-btn" data-value="洞穴感门头" data-parent="常见类型">洞穴感门头</button><button class="option-btn sub-btn" data-value="山体感门头" data-parent="常见类型">山体感门头</button><button class="option-btn sub-btn" data-value="云朵轮廓门头" data-parent="常见类型">云朵轮廓门头</button><button class="option-btn sub-btn" data-value="水滴造型门头" data-parent="常见类型">水滴造型门头</button><button class="option-btn sub-btn" data-value="胶囊造型门头" data-parent="常见类型">胶囊造型门头</button><button class="option-btn sub-btn" data-value="巨型盒子结构门头" data-parent="常见类型">巨型盒子结构门头</button></div></div>
+                <!-- 二、立体结构异形 -->
+                <div class="industry-block"><span class="industry-label">🏗️ 立体结构异形</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="外凸结构" data-parent="立体结构">外凸结构</button><button class="option-btn sub-btn" data-value="内凹结构" data-parent="立体结构">内凹结构</button><button class="option-btn sub-btn" data-value="包裹式结构" data-parent="立体结构">包裹式结构</button><button class="option-btn sub-btn" data-value="悬挑式结构" data-parent="立体结构">悬挑式结构</button><button class="option-btn sub-btn" data-value="多层穿插结构" data-parent="立体结构">多层穿插结构</button><button class="option-btn sub-btn" data-value="巨型体块结构" data-parent="立体结构">巨型体块结构</button><button class="option-btn sub-btn" data-value="漂浮结构" data-parent="立体结构">漂浮结构</button><button class="option-btn sub-btn" data-value="建筑延伸结构" data-parent="立体结构">建筑延伸结构</button><button class="option-btn sub-btn" data-value="盒体堆叠结构" data-parent="立体结构">盒体堆叠结构</button><button class="option-btn sub-btn" data-value="参数化结构" data-parent="立体结构">参数化结构</button><button class="option-btn sub-btn" data-value="龙骨外露结构" data-parent="立体结构">龙骨外露结构</button><button class="option-btn sub-btn" data-value="机械装甲结构" data-parent="立体结构">机械装甲结构</button><button class="option-btn sub-btn" data-value="未来科技结构" data-parent="立体结构">未来科技结构</button><button class="option-btn sub-btn" data-value="骨骼结构" data-parent="立体结构">骨骼结构</button><button class="option-btn sub-btn" data-value="隧道式入口" data-parent="立体结构">隧道式入口</button><button class="option-btn sub-btn" data-value="深渊感入口" data-parent="立体结构">深渊感入口</button><button class="option-btn sub-btn" data-value="舞台感门头" data-parent="立体结构">舞台感门头</button><button class="option-btn sub-btn" data-value="剧场式门头" data-parent="立体结构">剧场式门头</button><button class="option-btn sub-btn" data-value="太空舱结构" data-parent="立体结构">太空舱结构</button><button class="option-btn sub-btn" data-value="集装箱改造结构" data-parent="立体结构">集装箱改造结构</button><button class="option-btn sub-btn" data-value="洞口型结构" data-parent="立体结构">洞口型结构</button><button class="option-btn sub-btn" data-value="巨型框景结构" data-parent="立体结构">巨型框景结构</button></div></div>
+                <!-- 三、材质异形 -->
+                <div class="industry-block"><span class="industry-label">🧱 材质异形</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="镜面不锈钢折弯" data-parent="材质异形">镜面不锈钢折弯</button><button class="option-btn sub-btn" data-value="拉丝金属包裹" data-parent="材质异形">拉丝金属包裹</button><button class="option-btn sub-btn" data-value="镀钛金属结构" data-parent="材质异形">镀钛金属结构</button><button class="option-btn sub-btn" data-value="金属鳞片结构" data-parent="材质异形">金属鳞片结构</button><button class="option-btn sub-btn" data-value="金属穿孔板" data-parent="材质异形">金属穿孔板</button><button class="option-btn sub-btn" data-value="金属网格门头" data-parent="材质异形">金属网格门头</button><button class="option-btn sub-btn" data-value="铝板折叠门头" data-parent="材质异形">铝板折叠门头</button><button class="option-btn sub-btn" data-value="铝蜂窝曲面结构" data-parent="材质异形">铝蜂窝曲面结构</button><button class="option-btn sub-btn" data-value="通透发光结构" data-parent="材质异形">通透发光结构</button><button class="option-btn sub-btn" data-value="冰块质感" data-parent="材质异形">冰块质感</button><button class="option-btn sub-btn" data-value="果冻感门头" data-parent="材质异形">果冻感门头</button><button class="option-btn sub-btn" data-value="磨砂发光体" data-parent="材质异形">磨砂发光体</button><button class="option-btn sub-btn" data-value="渐变亚克力" data-parent="材质异形">渐变亚克力</button><button class="option-btn sub-btn" data-value="UV打印亚克力" data-parent="材质异形">UV打印亚克力</button><button class="option-btn sub-btn" data-value="原木雕刻" data-parent="材质异形">原木雕刻</button><button class="option-btn sub-btn" data-value="曲木结构" data-parent="材质异形">曲木结构</button><button class="option-btn sub-btn" data-value="木格栅波浪结构" data-parent="材质异形">木格栅波浪结构</button><button class="option-btn sub-btn" data-value="日式侘寂异形" data-parent="材质异形">日式侘寂异形</button><button class="option-btn sub-btn" data-value="洞石切割" data-parent="材质异形">洞石切割</button><button class="option-btn sub-btn" data-value="火山岩结构" data-parent="材质异形">火山岩结构</button><button class="option-btn sub-btn" data-value="水泥雕塑门头" data-parent="材质异形">水泥雕塑门头</button><button class="option-btn sub-btn" data-value="微水泥异形" data-parent="材质异形">微水泥异形</button><button class="option-btn sub-btn" data-value="布艺包裹" data-parent="材质异形">布艺包裹</button><button class="option-btn sub-btn" data-value="毛绒结构" data-parent="材质异形">毛绒结构</button><button class="option-btn sub-btn" data-value="皮革异形" data-parent="材质异形">皮革异形</button><button class="option-btn sub-btn" data-value="绒面艺术门头" data-parent="材质异形">绒面艺术门头</button></div></div>
+                <!-- 四、灯光异形 -->
+                <div class="industry-block"><span class="industry-label">💡 灯光异形</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="灯带轮廓异形" data-parent="灯光异形">灯带轮廓异形</button><button class="option-btn sub-btn" data-value="光圈门头" data-parent="灯光异形">光圈门头</button><button class="option-btn sub-btn" data-value="呼吸灯门头" data-parent="灯光异形">呼吸灯门头</button><button class="option-btn sub-btn" data-value="动态灯光门头" data-parent="灯光异形">动态灯光门头</button><button class="option-btn sub-btn" data-value="像素灯门头" data-parent="灯光异形">像素灯门头</button><button class="option-btn sub-btn" data-value="赛博霓虹门头" data-parent="灯光异形">赛博霓虹门头</button><button class="option-btn sub-btn" data-value="激光门头" data-parent="灯光异形">激光门头</button><button class="option-btn sub-btn" data-value="光纤门头" data-parent="灯光异形">光纤门头</button><button class="option-btn sub-btn" data-value="数字艺术门头" data-parent="灯光异形">数字艺术门头</button><button class="option-btn sub-btn" data-value="LED矩阵门头" data-parent="灯光异形">LED矩阵门头</button><button class="option-btn sub-btn" data-value="屏幕融合门头" data-parent="灯光异形">屏幕融合门头</button><button class="option-btn sub-btn" data-value="全息投影门头" data-parent="灯光异形">全息投影门头</button><button class="option-btn sub-btn" data-value="幻彩流动门头" data-parent="灯光异形">幻彩流动门头</button><button class="option-btn sub-btn" data-value="AI动态门头" data-parent="灯光异形">AI动态门头</button><button class="option-btn sub-btn" data-value="光瀑布门头" data-parent="灯光异形">光瀑布门头</button></div></div>
+                <!-- 五、IP化异形 -->
+                <div class="industry-block"><span class="industry-label">🐻 IP化异形</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="巨型咖啡杯门头" data-parent="IP化异形">巨型咖啡杯门头</button><button class="option-btn sub-btn" data-value="巨型汉堡门头" data-parent="IP化异形">巨型汉堡门头</button><button class="option-btn sub-btn" data-value="巨型猫头门头" data-parent="IP化异形">巨型猫头门头</button><button class="option-btn sub-btn" data-value="巨型熊门头" data-parent="IP化异形">巨型熊门头</button><button class="option-btn sub-btn" data-value="巨型奶茶门头" data-parent="IP化异形">巨型奶茶门头</button><button class="option-btn sub-btn" data-value="卡通脸门头" data-parent="IP化异形">卡通脸门头</button><button class="option-btn sub-btn" data-value="怪兽门头" data-parent="IP化异形">怪兽门头</button><button class="option-btn sub-btn" data-value="宇航员门头" data-parent="IP化异形">宇航员门头</button><button class="option-btn sub-btn" data-value="机器人门头" data-parent="IP化异形">机器人门头</button><button class="option-btn sub-btn" data-value="国潮神兽门头" data-parent="IP化异形">国潮神兽门头</button><button class="option-btn sub-btn" data-value="龙头门头" data-parent="IP化异形">龙头门头</button><button class="option-btn sub-btn" data-value="凤凰门头" data-parent="IP化异形">凤凰门头</button><button class="option-btn sub-btn" data-value="祥云门头" data-parent="IP化异形">祥云门头</button><button class="option-btn sub-btn" data-value="生肖门头" data-parent="IP化异形">生肖门头</button><button class="option-btn sub-btn" data-value="二次元门头" data-parent="IP化异形">二次元门头</button></div></div>
+                <!-- 六、艺术化异形 -->
+                <div class="industry-block"><span class="industry-label">🎨 艺术化异形</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="装置艺术门头" data-parent="艺术化异形">装置艺术门头</button><button class="option-btn sub-btn" data-value="参数化艺术门头" data-parent="艺术化异形">参数化艺术门头</button><button class="option-btn sub-btn" data-value="雕塑化门头" data-parent="艺术化异形">雕塑化门头</button><button class="option-btn sub-btn" data-value="美术馆风门头" data-parent="艺术化异形">美术馆风门头</button><button class="option-btn sub-btn" data-value="极简艺术门头" data-parent="艺术化异形">极简艺术门头</button><button class="option-btn sub-btn" data-value="解构主义门头" data-parent="艺术化异形">解构主义门头</button><button class="option-btn sub-btn" data-value="包豪斯门头" data-parent="艺术化异形">包豪斯门头</button><button class="option-btn sub-btn" data-value="扎哈流线门头" data-parent="艺术化异形">扎哈流线门头</button><button class="option-btn sub-btn" data-value="未来主义门头" data-parent="艺术化异形">未来主义门头</button><button class="option-btn sub-btn" data-value="超现实主义门头" data-parent="艺术化异形">超现实主义门头</button><button class="option-btn sub-btn" data-value="赛博朋克门头" data-parent="艺术化异形">赛博朋克门头</button><button class="option-btn sub-btn" data-value="蒸汽朋克门头" data-parent="艺术化异形">蒸汽朋克门头</button><button class="option-btn sub-btn" data-value="新中式艺术门头" data-parent="艺术化异形">新中式艺术门头</button><button class="option-btn sub-btn" data-value="东方禅意门头" data-parent="艺术化异形">东方禅意门头</button></div></div>
+                <!-- 七、自然生态异形 -->
+                <div class="industry-block"><span class="industry-label">🌿 自然生态异形</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="树洞门头" data-parent="自然生态异形">树洞门头</button><button class="option-btn sub-btn" data-value="山体门头" data-parent="自然生态异形">山体门头</button><button class="option-btn sub-btn" data-value="洞穴门头" data-parent="自然生态异形">洞穴门头</button><button class="option-btn sub-btn" data-value="溶洞门头" data-parent="自然生态异形">溶洞门头</button><button class="option-btn sub-btn" data-value="水波纹门头" data-parent="自然生态异形">水波纹门头</button><button class="option-btn sub-btn" data-value="熔岩门头" data-parent="自然生态异形">熔岩门头</button><button class="option-btn sub-btn" data-value="岩石包裹门头" data-parent="自然生态异形">岩石包裹门头</button><button class="option-btn sub-btn" data-value="苔藓生态门头" data-parent="自然生态异形">苔藓生态门头</button><button class="option-btn sub-btn" data-value="植物共生门头" data-parent="自然生态异形">植物共生门头</button><button class="option-btn sub-btn" data-value="森林感门头" data-parent="自然生态异形">森林感门头</button><button class="option-btn sub-btn" data-value="花艺包裹门头" data-parent="自然生态异形">花艺包裹门头</button><button class="option-btn sub-btn" data-value="自然风化门头" data-parent="自然生态异形">自然风化门头</button></div></div>
+                <!-- 八、数字AI异形 -->
+                <div class="industry-block"><span class="industry-label">🤖 数字AI异形</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="AI交互门头" data-parent="数字AI异形">AI交互门头</button><button class="option-btn sub-btn" data-value="情绪灯光门头" data-parent="数字AI异形">情绪灯光门头</button><button class="option-btn sub-btn" data-value="数字屏融合门头" data-parent="数字AI异形">数字屏融合门头</button><button class="option-btn sub-btn" data-value="裸眼3D门头" data-parent="数字AI异形">裸眼3D门头</button><button class="option-btn sub-btn" data-value="动态粒子门头" data-parent="数字AI异形">动态粒子门头</button><button class="option-btn sub-btn" data-value="AR互动门头" data-parent="数字AI异形">AR互动门头</button><button class="option-btn sub-btn" data-value="AI换肤门头" data-parent="数字AI异形">AI换肤门头</button><button class="option-btn sub-btn" data-value="实时天气变化门头" data-parent="数字AI异形">实时天气变化门头</button><button class="option-btn sub-btn" data-value="数据流门头" data-parent="数字AI异形">数据流门头</button><button class="option-btn sub-btn" data-value="虚拟人迎宾门头" data-parent="数字AI异形">虚拟人迎宾门头</button><button class="option-btn sub-btn" data-value="机械动态门头" data-parent="数字AI异形">机械动态门头</button></div></div>
+                <!-- 九、行业适配异形 -->
+                <div class="industry-block"><span class="industry-label">🏢 行业适配异形</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="餐饮烟火感门头" data-parent="行业适配异形">餐饮烟火感</button><button class="option-btn sub-btn" data-value="巨型食物IP门头" data-parent="行业适配异形">巨型食物IP</button><button class="option-btn sub-btn" data-value="复古市井门头" data-parent="行业适配异形">复古市井</button><button class="option-btn sub-btn" data-value="日式洞口门头" data-parent="行业适配异形">日式洞口</button><button class="option-btn sub-btn" data-value="工业风结构门头" data-parent="行业适配异形">工业风结构</button><button class="option-btn sub-btn" data-value="美业曲线感门头" data-parent="行业适配异形">美业曲线感</button><button class="option-btn sub-btn" data-value="美业发光感门头" data-parent="行业适配异形">美业发光感</button><button class="option-btn sub-btn" data-value="高级镜面门头" data-parent="行业适配异形">高级镜面</button><button class="option-btn sub-btn" data-value="女性柔美结构门头" data-parent="行业适配异形">女性柔美结构</button><button class="option-btn sub-btn" data-value="酒吧赛博门头" data-parent="行业适配异形">酒吧赛博</button><button class="option-btn sub-btn" data-value="暗黑风格门头" data-parent="行业适配异形">暗黑风格</button><button class="option-btn sub-btn" data-value="动态灯光门头" data-parent="行业适配异形">动态灯光</button><button class="option-btn sub-btn" data-value="机械结构门头" data-parent="行业适配异形">机械结构</button><button class="option-btn sub-btn" data-value="潮牌金属感门头" data-parent="行业适配异形">潮牌金属感</button><button class="option-btn sub-btn" data-value="解构主义门头" data-parent="行业适配异形">解构主义</button><button class="option-btn sub-btn" data-value="工业风门头" data-parent="行业适配异形">工业风</button><button class="option-btn sub-btn" data-value="涂鸦结构门头" data-parent="行业适配异形">涂鸦结构</button><button class="option-btn sub-btn" data-value="儿童卡通IP门头" data-parent="行业适配异形">儿童卡通IP</button><button class="option-btn sub-btn" data-value="糖果感门头" data-parent="行业适配异形">糖果感</button><button class="option-btn sub-btn" data-value="马卡龙结构门头" data-parent="行业适配异形">马卡龙结构</button></div></div>
             </div>
         </div>
 
@@ -229,7 +254,6 @@
       return a;
     }
 
-    // 通用多选初始化（可指定选择器）
     function initMultiSelect(containerId, selector = '.sub-btn') {
       const container = document.getElementById(containerId);
       if (!container) return;
@@ -240,7 +264,6 @@
       });
     }
 
-    // 通用单选初始化
     function initSingleSelect(containerId) {
       const container = document.getElementById(containerId);
       if (!container) return;
@@ -266,12 +289,13 @@
       return { values, parents: Array.from(parents) };
     }
 
-    function buildPrompt(brand, subtitle, industryStr, styleStr, materialInfo, fontMaterialStr, colorStr, layout, layer, time, district, otherDesc) {
+    function buildPrompt(brand, subtitle, industryStr, styleStr, shapeStr, materialInfo, fontMaterialStr, colorStr, layout, layer, time, district, otherDesc) {
       let prompt = `【商业门头设计】\n`;
       if (brand) prompt += `\n品牌：${brand}`;
       if (subtitle) prompt += `\n副标题：${subtitle}（严格比例：字号为品牌名称的1/2，位于品牌名称正下方，禁止自动调整大小）`;
       if (industryStr) prompt += `\n行业：${industryStr}`;
       if (styleStr) prompt += `\n风格：${styleStr}`;
+      if (shapeStr) prompt += `\n异形门头：${shapeStr}`;
       const scene = district === '不限' ? system.场景[Math.floor(Math.random() * system.场景.length)] : district;
       prompt += `\n场景：${scene}`;
       if (materialInfo.values.length) {
@@ -319,35 +343,33 @@
       const otherDesc = document.getElementById('otherInput').value.trim();
       const district = document.getElementById('districtSelect').value;
 
-      // 获取多选行业
       const industryBtns = document.querySelectorAll('#industryContainer .sub-btn.selected');
       const industryItems = Array.from(industryBtns).map(b => `${b.dataset.parent}·${b.dataset.value}`);
       const industryStr = industryItems.join(', ');
 
-      // 获取多选风格
       const styleBtns = document.querySelectorAll('#styleGroup .option-btn.selected');
       const styleItems = Array.from(styleBtns).map(b => b.dataset.value);
       const styleStr = styleItems.join(', ');
 
-      // 材质多选（沿用原函数）
+      const shapeBtns = document.querySelectorAll('#shapeContainer .sub-btn.selected');
+      const shapeItems = Array.from(shapeBtns).map(b => `${b.dataset.parent}·${b.dataset.value}`);
+      const shapeStr = shapeItems.join(', ');
+
       const materialInfo = getMultiSelectedValues('materialContainer');
 
-      // 获取多选字体材质
       const fontBtns = document.querySelectorAll('#fontMaterialContainer .sub-btn.selected');
       const fontItems = Array.from(fontBtns).map(b => b.dataset.value);
       const fontMaterialStr = fontItems.join(', ');
 
-      // 获取多选颜色
       const colorBtns = document.querySelectorAll('#colorContainer .option-btn.selected');
       const colorItems = Array.from(colorBtns).map(b => b.dataset.value);
       const colorStr = colorItems.join(', ');
 
-      // 单选：布局、层数、时间
       const layout = getSelectedValue('layoutGroup');
       const layer = getSelectedValue('layerGroup');
       const time = getSelectedValue('timeGroup');
 
-      const params = [brand, subtitle, industryStr, styleStr, materialInfo, fontMaterialStr, colorStr, layout, layer, time, district, otherDesc];
+      const params = [brand, subtitle, industryStr, styleStr, shapeStr, materialInfo, fontMaterialStr, colorStr, layout, layer, time, district, otherDesc];
 
       const generateBtn = document.getElementById('generateBtn');
       generateBtn.disabled = true;
@@ -367,6 +389,7 @@
             if (industryStr) badges += `<span class="card-badge">${industryStr}</span>`;
             if (materialInfo.values.length) badges += `<span class="card-badge green">${materialInfo.values.join('+')}</span>`;
             if (styleStr) badges += `<span class="card-badge">${styleStr}</span>`;
+            if (shapeStr) badges += `<span class="card-badge">🎭 ${shapeStr}</span>`;
             if (layout) badges += `<span class="card-badge">${layout}</span>`;
             if (layer) badges += `<span class="card-badge">${layer}</span>`;
             if (time) badges += `<span class="card-badge">${time}</span>`;
@@ -413,8 +436,9 @@
 
     // 初始化多选区域
     initMultiSelect('industryContainer', '.sub-btn');
+    initMultiSelect('shapeContainer', '.sub-btn');
+    initMultiSelect('materialContainer', '.sub-btn');
     initMultiSelect('fontMaterialContainer', '.sub-btn');
-    initMultiSelect('materialContainer', '.sub-btn'); // 确保材质也是多选（原本就是）
     initMultiSelect('styleGroup', '.option-btn');
     initMultiSelect('colorContainer', '.option-btn');
 
