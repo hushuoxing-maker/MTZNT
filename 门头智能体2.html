@@ -1,204 +1,203 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-  <title>商业门头设计AI · 副标题比例锁定版</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-      background: radial-gradient(circle at 20% 20%, #f8f0f8, #f0eef4);
-      min-height: 100vh; padding: 25px 20px; display: flex; flex-direction: column; align-items: center;
-    }
-    .header { text-align: center; margin-bottom: 25px; }
-    .header h1 {
-      font-size: 2.2rem; font-weight: 700;
-      background: linear-gradient(135deg, #b388eb, #e786a7);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; letter-spacing: 1px; margin-bottom: 6px;
-    }
-    .header p { color: #7b6b82; font-size: 0.95rem; font-weight: 500; }
-    .main-layout { display: flex; gap: 20px; width: 100%; max-width: 1400px; align-items: flex-start; }
-    .left-panel {
-      flex: 1; max-width: 600px;
-      background: rgba(255,255,255,0.7); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-      border-radius: 32px; padding: 30px 28px;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,255,255,0.5) inset;
-      border: 1px solid rgba(200,180,210,0.3); position: sticky; top: 20px; max-height: 95vh; overflow-y: auto;
-    }
-    .right-panel {
-      flex: 1.2; background: rgba(255,255,255,0.7); backdrop-filter: blur(25px);
-      border-radius: 32px; padding: 30px 28px;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.06); border: 1px solid rgba(200,180,210,0.3);
-    }
-    .right-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-    .right-header h3 { font-size: 1.1rem; font-weight: 700; color: #5e4b6b; }
-    .stats-badge { background: rgba(185,131,255,0.12); color: #7c3aed; font-size: 0.75rem; padding: 6px 14px; border-radius: 20px; font-weight: 600; }
-    .brand-row {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
-      background: rgba(255,255,255,0.6); border-radius: 18px; padding: 6px 6px 6px 20px;
-      backdrop-filter: blur(10px); border: 1px solid rgba(200,170,200,0.3);
-    }
-    .brand-row label { font-weight: 600; color: #5e4b6b; white-space: nowrap; font-size: 0.85rem; }
-    .brand-row input { flex:1; border:none; background:transparent; font-size:1rem; padding:12px 5px; outline:none; color:#2e1e33; font-weight:500; }
-    .brand-row input::placeholder { color:#bcacc4; }
-    .subtitle-row {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
-      background: rgba(255,255,255,0.55); border-radius: 18px; padding: 6px 6px 6px 20px;
-      backdrop-filter: blur(10px); border: 1px solid rgba(200,170,200,0.3);
-    }
-    .subtitle-row label { font-weight: 600; color: #5e4b6b; white-space: nowrap; font-size: 0.85rem; }
-    .subtitle-row input { flex:1; border:none; background:transparent; font-size:0.95rem; padding:12px 5px; outline:none; color:#2e1e33; }
-    .category-section { margin-bottom: 20px; }
-    .section-title {
-      font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:#8b6f9a;
-      margin-bottom:10px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;
-    }
-    .section-title span { background:#efe4f5; padding:2px 8px; border-radius:16px; font-size:0.65rem; color:#7b5e8c; white-space:nowrap; }
-    .industry-block { margin-bottom: 14px; }
-    .industry-label { display:inline-block; font-weight:700; font-size:0.8rem; color:#4a3a53; background:rgba(235,220,245,0.6); padding:4px 12px; border-radius:16px; margin-bottom:6px; letter-spacing:0.4px; }
-    .sub-btn-group { display:flex; flex-wrap:wrap; gap:6px; margin-left:2px; }
-    .option-btn {
-      padding:6px 13px; border-radius:24px; border:1px solid #e2d4ea; background:rgba(255,255,255,0.75);
-      backdrop-filter:blur(8px); font-size:0.78rem; font-weight:500; color:#4a3a53; cursor:pointer;
-      transition:all 0.25s ease; white-space:nowrap; letter-spacing:0.3px; box-shadow:0 2px 6px rgba(0,0,0,0.02);
-    }
-    .option-btn:hover { background:rgba(255,240,250,0.9); border-color:#d0a0d8; transform:translateY(-1px); box-shadow:0 8px 15px rgba(180,120,200,0.15); }
-    .option-btn.selected { background:linear-gradient(135deg, #b983ff, #e786a7); color:white; border-color:transparent; font-weight:600; box-shadow:0 8px 18px rgba(185,131,255,0.3); transform:scale(1.02); }
-    .style-btn-group { display:flex; flex-wrap:wrap; gap:6px; }
-    .other-textarea { width:100%; padding:14px 18px; border-radius:18px; border:1px solid #e2d4ea; background:rgba(255,255,255,0.7); font-size:0.9rem; color:#2e1e33; outline:none; resize:vertical; min-height:80px; font-family:inherit; }
-    .other-textarea::placeholder { color:#bcacc4; }
-    .other-textarea:focus { border-color:#b983ff; box-shadow:0 0 15px rgba(185,131,255,0.2); }
-    .generate-btn { width:100%; margin-top:15px; padding:15px; border-radius:50px; background:linear-gradient(135deg, #b983ff, #e786a7); border:none; color:white; font-size:1.1rem; font-weight:700; letter-spacing:2px; cursor:pointer; transition:0.3s; box-shadow:0 12px 25px rgba(185,131,255,0.35); }
-    .generate-btn:hover { background:linear-gradient(135deg, #c595ff, #f090b5); transform:translateY(-2px); box-shadow:0 18px 35px rgba(185,131,255,0.5); }
-    .generate-btn:disabled { opacity:0.5; transform:none; pointer-events:none; }
-    .result-grid { display:flex; flex-direction:column; gap:14px; max-height:70vh; overflow-y:auto; padding-right:6px; }
-    .result-grid::-webkit-scrollbar { width:5px; }
-    .result-grid::-webkit-scrollbar-thumb { background:rgba(185,131,255,0.3); border-radius:10px; }
-    .card { background:rgba(255,255,255,0.85); backdrop-filter:blur(12px); border-radius:18px; padding:18px; border:1px solid rgba(200,170,210,0.35); transition:0.3s; display:flex; flex-direction:column; gap:10px; }
-    .card:hover { border-color:#b983ff; box-shadow:0 10px 25px rgba(185,131,255,0.18); transform:translateY(-2px); }
-    .card-header { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-    .card-number { background:linear-gradient(135deg, #b983ff, #e786a7); color:white; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem; flex-shrink:0; }
-    .card-badge { background:rgba(185,131,255,0.12); color:#7c3aed; font-size:0.68rem; padding:2px 8px; border-radius:10px; font-weight:600; white-space:nowrap; }
-    .card-badge.green { background:rgba(134,200,167,0.15); color:#3d7a5c; }
-    .prompt-text { font-size:0.8rem; line-height:1.6; color:#2e1e33; white-space:pre-wrap; word-break:break-word; background:rgba(245,235,250,0.4); padding:12px; border-radius:10px; flex:1; }
-    .copy-btn { align-self:flex-end; background:linear-gradient(135deg, #b983ff, #e786a7); border:none; color:white; padding:7px 14px; border-radius:24px; font-weight:600; font-size:0.75rem; cursor:pointer; transition:0.2s; letter-spacing:0.4px; }
-    .copy-btn:hover { transform:scale(1.05); }
-    .copy-btn.copied { background:#9b8aac; pointer-events:none; }
-    .empty-state { text-align:center; padding:50px 20px; color:#b0a0b5; font-size:0.95rem; }
-    @media (max-width: 1000px) { .main-layout { flex-direction:column; } .left-panel { max-width:100%; position:static; max-height:none; } .right-panel { flex:1; } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>商业门头设计AI · 多选优化版</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: radial-gradient(circle at 20% 20%, #f8f0f8, #f0eef4);
+            min-height: 100vh; padding: 25px 20px; display: flex; flex-direction: column; align-items: center;
+        }
+        .header { text-align: center; margin-bottom: 25px; }
+        .header h1 {
+            font-size: 2.2rem; font-weight: 700;
+            background: linear-gradient(135deg, #b388eb, #e786a7);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; letter-spacing: 1px; margin-bottom: 6px;
+        }
+        .header p { color: #7b6b82; font-size: 0.95rem; font-weight: 500; }
+        .main-layout { display: flex; gap: 20px; width: 100%; max-width: 1400px; align-items: flex-start; }
+        .left-panel {
+            flex: 1; max-width: 600px;
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border-radius: 32px; padding: 30px 28px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,255,255,0.5) inset;
+            border: 1px solid rgba(200,180,210,0.3); position: sticky; top: 20px; max-height: 95vh; overflow-y: auto;
+        }
+        .right-panel {
+            flex: 1.2; background: rgba(255,255,255,0.7); backdrop-filter: blur(25px);
+            border-radius: 32px; padding: 30px 28px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.06); border: 1px solid rgba(200,180,210,0.3);
+        }
+        .right-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        .right-header h3 { font-size: 1.1rem; font-weight: 700; color: #5e4b6b; }
+        .stats-badge { background: rgba(185,131,255,0.12); color: #7c3aed; font-size: 0.75rem; padding: 6px 14px; border-radius: 20px; font-weight: 600; }
+        .brand-row {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+            background: rgba(255,255,255,0.6); border-radius: 18px; padding: 6px 6px 6px 20px;
+            backdrop-filter: blur(10px); border: 1px solid rgba(200,170,200,0.3);
+        }
+        .brand-row label { font-weight: 600; color: #5e4b6b; white-space: nowrap; font-size: 0.85rem; }
+        .brand-row input { flex:1; border:none; background:transparent; font-size:1rem; padding:12px 5px; outline:none; color:#2e1e33; font-weight:500; }
+        .brand-row input::placeholder { color:#bcacc4; }
+        .subtitle-row {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+            background: rgba(255,255,255,0.55); border-radius: 18px; padding: 6px 6px 6px 20px;
+            backdrop-filter: blur(10px); border: 1px solid rgba(200,170,200,0.3);
+        }
+        .subtitle-row label { font-weight: 600; color: #5e4b6b; white-space: nowrap; font-size: 0.85rem; }
+        .subtitle-row input { flex:1; border:none; background:transparent; font-size:0.95rem; padding:12px 5px; outline:none; color:#2e1e33; }
+        .category-section { margin-bottom: 20px; }
+        .section-title {
+            font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:#8b6f9a;
+            margin-bottom:10px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+        }
+        .section-title span { background:#efe4f5; padding:2px 8px; border-radius:16px; font-size:0.65rem; color:#7b5e8c; white-space:nowrap; }
+        .industry-block { margin-bottom: 14px; }
+        .industry-label { display:inline-block; font-weight:700; font-size:0.8rem; color:#4a3a53; background:rgba(235,220,245,0.6); padding:4px 12px; border-radius:16px; margin-bottom:6px; letter-spacing:0.4px; }
+        .sub-btn-group { display:flex; flex-wrap:wrap; gap:6px; margin-left:2px; }
+        .option-btn {
+            padding:6px 13px; border-radius:24px; border:1px solid #e2d4ea; background:rgba(255,255,255,0.75);
+            backdrop-filter:blur(8px); font-size:0.78rem; font-weight:500; color:#4a3a53; cursor:pointer;
+            transition:all 0.25s ease; white-space:nowrap; letter-spacing:0.3px; box-shadow:0 2px 6px rgba(0,0,0,0.02);
+        }
+        .option-btn:hover { background:rgba(255,240,250,0.9); border-color:#d0a0d8; transform:translateY(-1px); box-shadow:0 8px 15px rgba(180,120,200,0.15); }
+        .option-btn.selected { background:linear-gradient(135deg, #b983ff, #e786a7); color:white; border-color:transparent; font-weight:600; box-shadow:0 8px 18px rgba(185,131,255,0.3); transform:scale(1.02); }
+        .style-btn-group { display:flex; flex-wrap:wrap; gap:6px; }
+        .other-textarea { width:100%; padding:14px 18px; border-radius:18px; border:1px solid #e2d4ea; background:rgba(255,255,255,0.7); font-size:0.9rem; color:#2e1e33; outline:none; resize:vertical; min-height:80px; font-family:inherit; }
+        .other-textarea::placeholder { color:#bcacc4; }
+        .other-textarea:focus { border-color:#b983ff; box-shadow:0 0 15px rgba(185,131,255,0.2); }
+        .generate-btn { width:100%; margin-top:15px; padding:15px; border-radius:50px; background:linear-gradient(135deg, #b983ff, #e786a7); border:none; color:white; font-size:1.1rem; font-weight:700; letter-spacing:2px; cursor:pointer; transition:0.3s; box-shadow:0 12px 25px rgba(185,131,255,0.35); }
+        .generate-btn:hover { background:linear-gradient(135deg, #c595ff, #f090b5); transform:translateY(-2px); box-shadow:0 18px 35px rgba(185,131,255,0.5); }
+        .generate-btn:disabled { opacity:0.5; transform:none; pointer-events:none; }
+        .result-grid { display:flex; flex-direction:column; gap:14px; max-height:70vh; overflow-y:auto; padding-right:6px; }
+        .result-grid::-webkit-scrollbar { width:5px; }
+        .result-grid::-webkit-scrollbar-thumb { background:rgba(185,131,255,0.3); border-radius:10px; }
+        .card { background:rgba(255,255,255,0.85); backdrop-filter:blur(12px); border-radius:18px; padding:18px; border:1px solid rgba(200,170,210,0.35); transition:0.3s; display:flex; flex-direction:column; gap:10px; }
+        .card:hover { border-color:#b983ff; box-shadow:0 10px 25px rgba(185,131,255,0.18); transform:translateY(-2px); }
+        .card-header { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+        .card-number { background:linear-gradient(135deg, #b983ff, #e786a7); color:white; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem; flex-shrink:0; }
+        .card-badge { background:rgba(185,131,255,0.12); color:#7c3aed; font-size:0.68rem; padding:2px 8px; border-radius:10px; font-weight:600; white-space:nowrap; }
+        .card-badge.green { background:rgba(134,200,167,0.15); color:#3d7a5c; }
+        .prompt-text { font-size:0.8rem; line-height:1.6; color:#2e1e33; white-space:pre-wrap; word-break:break-word; background:rgba(245,235,250,0.4); padding:12px; border-radius:10px; flex:1; }
+        .copy-btn { align-self:flex-end; background:linear-gradient(135deg, #b983ff, #e786a7); border:none; color:white; padding:7px 14px; border-radius:24px; font-weight:600; font-size:0.75rem; cursor:pointer; transition:0.2s; letter-spacing:0.4px; }
+        .copy-btn:hover { transform:scale(1.05); }
+        .copy-btn.copied { background:#9b8aac; pointer-events:none; }
+        .empty-state { text-align:center; padding:50px 20px; color:#b0a0b5; font-size:0.95rem; }
+        @media (max-width: 1000px) { .main-layout { flex-direction:column; } .left-panel { max-width:100%; position:static; max-height:none; } .right-panel { flex:1; } }
+    </style>
 </head>
 <body>
 <div class="header">
-  <h1>✨ 商业门头设计AI智能体</h1>
-  <p>自由选择 · 副标题比例锁定 · 层数可选 · 稳定20组</p>
+    <h1>✨ 商业门头设计AI智能体</h1>
+    <p>行业/风格/字体/颜色均支持多选 · 未选不输出 · 稳定20组</p>
 </div>
 
 <div class="main-layout">
-  <div class="left-panel">
-    <div class="brand-row"><label>🏷️ 品牌</label><input id="brandInput" type="text" placeholder="品牌名称（必填）"></div>
-    <div class="subtitle-row"><label>📝 副标题</label><input id="subtitleInput" type="text" placeholder="自定义副标题（可留空）"></div>
+    <div class="left-panel">
+        <div class="brand-row"><label>🏷️ 品牌</label><input id="brandInput" type="text" placeholder="品牌名称（必填）"></div>
+        <div class="subtitle-row"><label>📝 副标题</label><input id="subtitleInput" type="text" placeholder="自定义副标题（可留空）"></div>
 
-    <div class="category-section">
-      <div class="section-title">📌 行业分类 <span>可选</span></div>
-      <div id="industryContainer">
-        <div class="industry-block"><span class="industry-label">🍔 餐饮类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="快餐小吃" data-parent="餐饮类">快餐小吃</button><button class="option-btn sub-btn" data-value="火锅烤肉" data-parent="餐饮类">火锅烤肉</button><button class="option-btn sub-btn" data-value="咖啡奶茶" data-parent="餐饮类">咖啡奶茶</button><button class="option-btn sub-btn" data-value="甜品轻食" data-parent="餐饮类">甜品轻食</button><button class="option-btn sub-btn" data-value="特色餐饮" data-parent="餐饮类">特色餐饮</button><button class="option-btn sub-btn" data-value="面馆粉店" data-parent="餐饮类">面馆粉店</button></div></div>
-        <div class="industry-block"><span class="industry-label">🛍️ 零售类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="服装店" data-parent="零售类">服装店</button><button class="option-btn sub-btn" data-value="美妆店" data-parent="零售类">美妆店</button><button class="option-btn sub-btn" data-value="饰品店" data-parent="零售类">饰品店</button><button class="option-btn sub-btn" data-value="便利店" data-parent="零售类">便利店</button><button class="option-btn sub-btn" data-value="手机数码店" data-parent="零售类">手机数码店</button><button class="option-btn sub-btn" data-value="家居杂货" data-parent="零售类">家居杂货</button></div></div>
-        <div class="industry-block"><span class="industry-label">💇 生活服务类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="美容美发" data-parent="生活服务类">美容美发</button><button class="option-btn sub-btn" data-value="SPA养生" data-parent="生活服务类">SPA养生</button><button class="option-btn sub-btn" data-value="教育培训" data-parent="生活服务类">教育培训</button><button class="option-btn sub-btn" data-value="健身房" data-parent="生活服务类">健身房</button><button class="option-btn sub-btn" data-value="洗衣店" data-parent="生活服务类">洗衣店</button><button class="option-btn sub-btn" data-value="宠物店" data-parent="生活服务类">宠物店</button></div></div>
-        <div class="industry-block"><span class="industry-label">🏢 商业连锁品牌</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="连锁餐饮" data-parent="商业连锁品牌">连锁餐饮</button><button class="option-btn sub-btn" data-value="药店" data-parent="商业连锁品牌">药店</button><button class="option-btn sub-btn" data-value="超市" data-parent="商业连锁品牌">超市</button><button class="option-btn sub-btn" data-value="品牌旗舰店" data-parent="商业连锁品牌">品牌旗舰店</button><button class="option-btn sub-btn" data-value="连锁便利店" data-parent="商业连锁品牌">连锁便利店</button><button class="option-btn sub-btn" data-value="品牌专卖店" data-parent="商业连锁品牌">品牌专卖店</button></div></div>
-        <div class="industry-block"><span class="industry-label">🏨 地产酒店会所</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="售楼部" data-parent="地产酒店会所">售楼部</button><button class="option-btn sub-btn" data-value="酒店" data-parent="地产酒店会所">酒店</button><button class="option-btn sub-btn" data-value="民宿" data-parent="地产酒店会所">民宿</button><button class="option-btn sub-btn" data-value="会所" data-parent="地产酒店会所">会所</button><button class="option-btn sub-btn" data-value="高端商业空间" data-parent="地产酒店会所">高端商业空间</button><button class="option-btn sub-btn" data-value="展厅" data-parent="地产酒店会所">展厅</button></div></div>
-        <div class="industry-block"><span class="industry-label">🌙 夜经济娱乐</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="酒吧" data-parent="夜经济娱乐">酒吧</button><button class="option-btn sub-btn" data-value="KTV" data-parent="夜经济娱乐">KTV</button><button class="option-btn sub-btn" data-value="夜市" data-parent="夜经济娱乐">夜市</button><button class="option-btn sub-btn" data-value="电竞馆" data-parent="夜经济娱乐">电竞馆</button><button class="option-btn sub-btn" data-value="LiveHouse" data-parent="夜经济娱乐">LiveHouse</button><button class="option-btn sub-btn" data-value="剧本杀" data-parent="夜经济娱乐">剧本杀</button></div></div>
-        <div class="industry-block"><span class="industry-label">🚗 汽车行业</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="洗车店" data-parent="汽车行业">洗车店</button><button class="option-btn sub-btn" data-value="贴膜店" data-parent="汽车行业">贴膜店</button><button class="option-btn sub-btn" data-value="改装店" data-parent="汽车行业">改装店</button><button class="option-btn sub-btn" data-value="4S店" data-parent="汽车行业">4S店</button><button class="option-btn sub-btn" data-value="汽车美容" data-parent="汽车行业">汽车美容</button><button class="option-btn sub-btn" data-value="汽修店" data-parent="汽车行业">汽修店</button></div></div>
-        <div class="industry-block"><span class="industry-label">🏥 医疗健康类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="口腔诊所" data-parent="医疗健康类">口腔诊所</button><button class="option-btn sub-btn" data-value="中医诊所" data-parent="医疗健康类">中医诊所</button><button class="option-btn sub-btn" data-value="医美机构" data-parent="医疗健康类">医美机构</button><button class="option-btn sub-btn" data-value="药店" data-parent="医疗健康类">药店</button><button class="option-btn sub-btn" data-value="体检中心" data-parent="医疗健康类">体检中心</button><button class="option-btn sub-btn" data-value="眼科诊所" data-parent="医疗健康类">眼科诊所</button></div></div>
-      </div>
+        <!-- 行业分类（多选） -->
+        <div class="category-section">
+            <div class="section-title">📌 行业分类 <span>可选多选</span></div>
+            <div id="industryContainer">
+                <div class="industry-block"><span class="industry-label">🍔 餐饮类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="快餐小吃" data-parent="餐饮类">快餐小吃</button><button class="option-btn sub-btn" data-value="火锅烤肉" data-parent="餐饮类">火锅烤肉</button><button class="option-btn sub-btn" data-value="咖啡奶茶" data-parent="餐饮类">咖啡奶茶</button><button class="option-btn sub-btn" data-value="甜品轻食" data-parent="餐饮类">甜品轻食</button><button class="option-btn sub-btn" data-value="特色餐饮" data-parent="餐饮类">特色餐饮</button><button class="option-btn sub-btn" data-value="面馆粉店" data-parent="餐饮类">面馆粉店</button></div></div>
+                <div class="industry-block"><span class="industry-label">🛍️ 零售类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="服装店" data-parent="零售类">服装店</button><button class="option-btn sub-btn" data-value="美妆店" data-parent="零售类">美妆店</button><button class="option-btn sub-btn" data-value="饰品店" data-parent="零售类">饰品店</button><button class="option-btn sub-btn" data-value="便利店" data-parent="零售类">便利店</button><button class="option-btn sub-btn" data-value="手机数码店" data-parent="零售类">手机数码店</button><button class="option-btn sub-btn" data-value="家居杂货" data-parent="零售类">家居杂货</button></div></div>
+                <div class="industry-block"><span class="industry-label">💇 生活服务类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="美容美发" data-parent="生活服务类">美容美发</button><button class="option-btn sub-btn" data-value="SPA养生" data-parent="生活服务类">SPA养生</button><button class="option-btn sub-btn" data-value="教育培训" data-parent="生活服务类">教育培训</button><button class="option-btn sub-btn" data-value="健身房" data-parent="生活服务类">健身房</button><button class="option-btn sub-btn" data-value="洗衣店" data-parent="生活服务类">洗衣店</button><button class="option-btn sub-btn" data-value="宠物店" data-parent="生活服务类">宠物店</button></div></div>
+                <div class="industry-block"><span class="industry-label">🏢 商业连锁品牌</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="连锁餐饮" data-parent="商业连锁品牌">连锁餐饮</button><button class="option-btn sub-btn" data-value="药店" data-parent="商业连锁品牌">药店</button><button class="option-btn sub-btn" data-value="超市" data-parent="商业连锁品牌">超市</button><button class="option-btn sub-btn" data-value="品牌旗舰店" data-parent="商业连锁品牌">品牌旗舰店</button><button class="option-btn sub-btn" data-value="连锁便利店" data-parent="商业连锁品牌">连锁便利店</button><button class="option-btn sub-btn" data-value="品牌专卖店" data-parent="商业连锁品牌">品牌专卖店</button></div></div>
+                <div class="industry-block"><span class="industry-label">🏨 地产酒店会所</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="售楼部" data-parent="地产酒店会所">售楼部</button><button class="option-btn sub-btn" data-value="酒店" data-parent="地产酒店会所">酒店</button><button class="option-btn sub-btn" data-value="民宿" data-parent="地产酒店会所">民宿</button><button class="option-btn sub-btn" data-value="会所" data-parent="地产酒店会所">会所</button><button class="option-btn sub-btn" data-value="高端商业空间" data-parent="地产酒店会所">高端商业空间</button><button class="option-btn sub-btn" data-value="展厅" data-parent="地产酒店会所">展厅</button></div></div>
+                <div class="industry-block"><span class="industry-label">🌙 夜经济娱乐</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="酒吧" data-parent="夜经济娱乐">酒吧</button><button class="option-btn sub-btn" data-value="KTV" data-parent="夜经济娱乐">KTV</button><button class="option-btn sub-btn" data-value="夜市" data-parent="夜经济娱乐">夜市</button><button class="option-btn sub-btn" data-value="电竞馆" data-parent="夜经济娱乐">电竞馆</button><button class="option-btn sub-btn" data-value="LiveHouse" data-parent="夜经济娱乐">LiveHouse</button><button class="option-btn sub-btn" data-value="剧本杀" data-parent="夜经济娱乐">剧本杀</button></div></div>
+                <div class="industry-block"><span class="industry-label">🚗 汽车行业</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="洗车店" data-parent="汽车行业">洗车店</button><button class="option-btn sub-btn" data-value="贴膜店" data-parent="汽车行业">贴膜店</button><button class="option-btn sub-btn" data-value="改装店" data-parent="汽车行业">改装店</button><button class="option-btn sub-btn" data-value="4S店" data-parent="汽车行业">4S店</button><button class="option-btn sub-btn" data-value="汽车美容" data-parent="汽车行业">汽车美容</button><button class="option-btn sub-btn" data-value="汽修店" data-parent="汽车行业">汽修店</button></div></div>
+                <div class="industry-block"><span class="industry-label">🏥 医疗健康类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="口腔诊所" data-parent="医疗健康类">口腔诊所</button><button class="option-btn sub-btn" data-value="中医诊所" data-parent="医疗健康类">中医诊所</button><button class="option-btn sub-btn" data-value="医美机构" data-parent="医疗健康类">医美机构</button><button class="option-btn sub-btn" data-value="药店" data-parent="医疗健康类">药店</button><button class="option-btn sub-btn" data-value="体检中心" data-parent="医疗健康类">体检中心</button><button class="option-btn sub-btn" data-value="眼科诊所" data-parent="医疗健康类">眼科诊所</button></div></div>
+            </div>
+        </div>
+
+        <!-- 门头风格/样式（多选） -->
+        <div class="category-section">
+            <div class="section-title">🎨 门头风格 / 样式 <span>可选多选</span></div>
+            <div class="style-btn-group" id="styleGroup">
+                <button class="option-btn" data-value="网红门头">📸 网红门头</button><button class="option-btn" data-value="现代简约">▫️ 现代简约</button><button class="option-btn" data-value="现代传统">🏮 现代传统</button><button class="option-btn" data-value="国潮风">🐉 国潮风</button><button class="option-btn" data-value="轻奢风格">💎 轻奢风格</button><button class="option-btn" data-value="赛博朋克">🤖 赛博朋克</button><button class="option-btn" data-value="卡通风格">🐱 卡通风格</button><button class="option-btn" data-value="韩式清新">🌸 韩式清新</button><button class="option-btn" data-value="科技风格">🔬 科技风格</button><button class="option-btn" data-value="欧式风格">🏛️ 欧式风格</button><button class="option-btn" data-value="泰式东南亚">🌴 泰式东南亚</button><button class="option-btn" data-value="新中式">🍃 新中式</button><button class="option-btn" data-value="原木风格">🪵 原木风格</button><button class="option-btn" data-value="灯箱一体式">💠 灯箱一体式</button><button class="option-btn" data-value="异形创意">🌀 异形创意</button><button class="option-btn" data-value="多层叠加">📚 多层叠加</button><button class="option-btn" data-value="转角式创意">↗️ 转角式创意</button><button class="option-btn" data-value="格栅造型">📏 格栅造型</button><button class="option-btn" data-value="立体悬挑式">🧩 立体悬挑式</button><button class="option-btn" data-value="平面招牌式">🪧 平面招牌式</button><button class="option-btn" data-value="中式屋檐">🏯 中式屋檐</button>
+            </div>
+        </div>
+
+        <!-- 门头材质系统（多选） -->
+        <div class="category-section">
+            <div class="section-title">🧱 门头材质系统 <span>可选多选</span></div>
+            <div id="materialContainer">
+                <div class="industry-block"><span class="industry-label">🔩 金属材质</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="不锈钢" data-parent="金属材质">不锈钢</button><button class="option-btn sub-btn" data-value="黑钛金" data-parent="金属材质">黑钛金</button><button class="option-btn sub-btn" data-value="铝塑板" data-parent="金属材质">铝塑板</button><button class="option-btn sub-btn" data-value="铝单板" data-parent="金属材质">铝单板</button><button class="option-btn sub-btn" data-value="镀锌板" data-parent="金属材质">镀锌板</button><button class="option-btn sub-btn" data-value="铜板" data-parent="金属材质">铜板</button></div></div>
+                <div class="industry-block"><span class="industry-label">🪵 木质系统</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="防腐木" data-parent="木质系统">防腐木</button><button class="option-btn sub-btn" data-value="木饰面" data-parent="木质系统">木饰面</button><button class="option-btn sub-btn" data-value="原木板" data-parent="木质系统">原木板</button><button class="option-btn sub-btn" data-value="碳化木" data-parent="木质系统">碳化木</button><button class="option-btn sub-btn" data-value="竹木" data-parent="木质系统">竹木</button></div></div>
+                <div class="industry-block"><span class="industry-label">🪨 石材系统</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="岩板" data-parent="石材系统">岩板</button><button class="option-btn sub-btn" data-value="大理石" data-parent="石材系统">大理石</button><button class="option-btn sub-btn" data-value="微水泥" data-parent="石材系统">微水泥</button><button class="option-btn sub-btn" data-value="花岗岩" data-parent="石材系统">花岗岩</button><button class="option-btn sub-btn" data-value="水磨石" data-parent="石材系统">水磨石</button></div></div>
+                <div class="industry-block"><span class="industry-label">🪟 玻璃系统</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="长虹玻璃" data-parent="玻璃系统">长虹玻璃</button><button class="option-btn sub-btn" data-value="艺术玻璃" data-parent="玻璃系统">艺术玻璃</button><button class="option-btn sub-btn" data-value="钢化玻璃" data-parent="玻璃系统">钢化玻璃</button><button class="option-btn sub-btn" data-value="夹胶玻璃" data-parent="玻璃系统">夹胶玻璃</button><button class="option-btn sub-btn" data-value="磨砂玻璃" data-parent="玻璃系统">磨砂玻璃</button></div></div>
+                <div class="industry-block"><span class="industry-label">📺 数字媒体系统</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="LED屏" data-parent="数字媒体系统">LED屏</button><button class="option-btn sub-btn" data-value="全息屏" data-parent="数字媒体系统">全息屏</button><button class="option-btn sub-btn" data-value="动态广告屏" data-parent="数字媒体系统">动态广告屏</button><button class="option-btn sub-btn" data-value="透明屏" data-parent="数字媒体系统">透明屏</button><button class="option-btn sub-btn" data-value="互动屏幕" data-parent="数字媒体系统">互动屏幕</button></div></div>
+                <div class="industry-block"><span class="industry-label">🎭 特殊造型材质</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="格栅" data-parent="特殊造型材质">格栅</button><button class="option-btn sub-btn" data-value="冲孔板" data-parent="特殊造型材质">冲孔板</button><button class="option-btn sub-btn" data-value="霓虹灯" data-parent="特殊造型材质">霓虹灯</button><button class="option-btn sub-btn" data-value="艺术装置" data-parent="特殊造型材质">艺术装置</button><button class="option-btn sub-btn" data-value="透光膜" data-parent="特殊造型材质">透光膜</button><button class="option-btn sub-btn" data-value="3D打印造型" data-parent="特殊造型材质">3D打印造型</button></div></div>
+            </div>
+        </div>
+
+        <!-- 招牌文字字体材质（多选） -->
+        <div class="category-section">
+            <div class="section-title">🔤 招牌文字字体材质 <span>可选多选</span></div>
+            <div id="fontMaterialContainer">
+                <div class="industry-block"><span class="industry-label">金属类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="不锈钢字" data-parent="金属类">不锈钢字</button><button class="option-btn sub-btn" data-value="钛金字" data-parent="金属类">钛金字</button><button class="option-btn sub-btn" data-value="镀锌铁皮字" data-parent="金属类">镀锌铁皮字</button><button class="option-btn sub-btn" data-value="铝板字" data-parent="金属类">铝板字</button><button class="option-btn sub-btn" data-value="铝型材字" data-parent="金属类">铝型材字</button><button class="option-btn sub-btn" data-value="黄铜字" data-parent="金属类">黄铜字</button><button class="option-btn sub-btn" data-value="紫铜字" data-parent="金属类">紫铜字</button></div></div>
+                <div class="industry-block"><span class="industry-label">亚克力类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="亚克力实心字" data-parent="亚克力类">亚克力实心字</button><button class="option-btn sub-btn" data-value="亚克力发光字" data-parent="亚克力类">亚克力发光字</button><button class="option-btn sub-btn" data-value="亚克力背光字" data-parent="亚克力类">亚克力背光字</button><button class="option-btn sub-btn" data-value="亚克力烤漆字" data-parent="亚克力类">亚克力烤漆字</button></div></div>
+                <div class="industry-block"><span class="industry-label">发光字专用</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="树脂发光字" data-parent="发光字专用">树脂发光字</button><button class="option-btn sub-btn" data-value="迷你发光字" data-parent="发光字专用">迷你发光字</button><button class="option-btn sub-btn" data-value="无边框发光字" data-parent="发光字专用">无边框发光字</button><button class="option-btn sub-btn" data-value="冲孔外露灯字" data-parent="发光字专用">冲孔外露灯字</button></div></div>
+                <div class="industry-block"><span class="industry-label">PVC/雪弗板</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="PVC雪弗板实心字" data-parent="PVC/雪弗板">PVC雪弗板实心字</button><button class="option-btn sub-btn" data-value="PVC烤漆字" data-parent="PVC/雪弗板">PVC烤漆字</button></div></div>
+                <div class="industry-block"><span class="industry-label">木质/仿古</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="实木字" data-parent="木质/仿古">实木字</button><button class="option-btn sub-btn" data-value="防腐木字" data-parent="木质/仿古">防腐木字</button><button class="option-btn sub-btn" data-value="密度板雕刻字" data-parent="木质/仿古">密度板雕刻字</button></div></div>
+                <div class="industry-block"><span class="industry-label">特殊工艺</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="水晶字" data-parent="特殊工艺">水晶字</button><button class="option-btn sub-btn" data-value="玻璃钢字" data-parent="特殊工艺">玻璃钢字</button><button class="option-btn sub-btn" data-value="霓虹灯字" data-parent="特殊工艺">霓虹灯字</button><button class="option-btn sub-btn" data-value="泡沫字" data-parent="特殊工艺">泡沫字</button></div></div>
+            </div>
+        </div>
+
+        <!-- 颜色选择（多选） -->
+        <div class="category-section">
+            <div class="section-title">🎨 颜色选择 <span>可选多选</span></div>
+            <div id="colorContainer" class="style-btn-group">
+                <button class="option-btn" data-value="暖黄+红">🔥 暖黄+红</button><button class="option-btn" data-value="橙+深棕">🍊 橙+深棕</button><button class="option-btn" data-value="粉+玫瑰金">🌸 粉+玫瑰金</button><button class="option-btn" data-value="黑白灰">⬛ 黑白灰</button><button class="option-btn" data-value="霓虹紫+黑">🟣 霓虹紫+黑</button><button class="option-btn" data-value="蓝白清爽">🔵 蓝白清爽</button><button class="option-btn" data-value="中国红+金">🀄 中国红+金</button><button class="option-btn" data-value="原木+白">🪵 原木+白</button><button class="option-btn" data-value="莫兰迪色系">🎨 莫兰迪色系</button><button class="option-btn" data-value="金属灰+亮橙">⚙️ 金属灰+亮橙</button><button class="option-btn" data-value="玫瑰金+白">🌹 玫瑰金+白</button><button class="option-btn" data-value="香槟金+米">🥂 香槟金+米</button><button class="option-btn" data-value="炭黑+亮银">🖤 炭黑+亮银</button><button class="option-btn" data-value="象牙白+浅灰">🤍 象牙白+浅灰</button><button class="option-btn" data-value="墨绿+金">🌲 墨绿+金</button><button class="option-btn" data-value="深蓝+银">💙 深蓝+银</button>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <div class="section-title">📐 门头布局 <span>可选</span></div>
+            <div class="style-btn-group" id="layoutGroup">
+                <button class="option-btn" data-value="单开间门头">🚪 单开间</button><button class="option-btn" data-value="双开间门头">🚪🚪 双开间</button><button class="option-btn" data-value="三开间门头">🚪🚪🚪 三开间</button><button class="option-btn" data-value="横向超宽">📏 横向超宽</button><button class="option-btn" data-value="竖向">📐 竖向</button><button class="option-btn" data-value="多层">📚 多层</button><button class="option-btn" data-value="叠加">🪜 叠加</button>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <div class="section-title">🏢 门头层数 <span>可选</span></div>
+            <div class="style-btn-group" id="layerGroup">
+                <button class="option-btn" data-value="一层">1️⃣ 一层</button><button class="option-btn" data-value="二层">2️⃣ 二层</button><button class="option-btn" data-value="三层">3️⃣ 三层</button><button class="option-btn" data-value="四层">4️⃣ 四层</button><button class="option-btn" data-value="五层">5️⃣ 五层</button><button class="option-btn" data-value="六层">6️⃣ 六层</button>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <div class="section-title">🌗 时间场景 <span>可选</span></div>
+            <div class="style-btn-group" id="timeGroup">
+                <button class="option-btn" data-value="白天">☀️ 白天</button><button class="option-btn" data-value="黑夜">🌙 黑夜</button>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <div class="section-title">📍 商圈环境</div>
+            <select id="districtSelect">
+                <option value="不限">🌐 不限（随机匹配）</option><option value="高端购物中心">高端购物中心</option><option value="临街独立商铺">临街独立商铺</option><option value="步行街">步行街</option><option value="社区底商">社区底商</option><option value="百货商场一层">百货商场一层</option><option value="艺术园区">艺术园区</option><option value="交通枢纽">交通枢纽</option><option value="地下商业街">地下商业街</option>
+            </select>
+        </div>
+
+        <div class="category-section">
+            <div class="section-title">💬 其他需求描述</div>
+            <textarea id="otherInput" class="other-textarea" placeholder="自定义其他需求（可留空）"></textarea>
+        </div>
+
+        <button class="generate-btn" id="generateBtn">⚡ 生成20组结构化提示词</button>
     </div>
 
-    <div class="category-section">
-      <div class="section-title">🎨 门头风格 / 样式 <span>可选</span></div>
-      <div class="style-btn-group" id="styleGroup">
-        <button class="option-btn" data-value="网红门头">📸 网红门头</button><button class="option-btn" data-value="现代简约">▫️ 现代简约</button><button class="option-btn" data-value="现代传统">🏮 现代传统</button><button class="option-btn" data-value="国潮风">🐉 国潮风</button><button class="option-btn" data-value="轻奢风格">💎 轻奢风格</button><button class="option-btn" data-value="赛博朋克">🤖 赛博朋克</button><button class="option-btn" data-value="卡通风格">🐱 卡通风格</button><button class="option-btn" data-value="韩式清新">🌸 韩式清新</button><button class="option-btn" data-value="科技风格">🔬 科技风格</button><button class="option-btn" data-value="欧式风格">🏛️ 欧式风格</button><button class="option-btn" data-value="泰式东南亚">🌴 泰式东南亚</button><button class="option-btn" data-value="新中式">🍃 新中式</button><button class="option-btn" data-value="原木风格">🪵 原木风格</button><button class="option-btn" data-value="灯箱一体式">💠 灯箱一体式</button><button class="option-btn" data-value="异形创意">🌀 异形创意</button><button class="option-btn" data-value="多层叠加">📚 多层叠加</button><button class="option-btn" data-value="转角式创意">↗️ 转角式创意</button><button class="option-btn" data-value="格栅造型">📏 格栅造型</button><button class="option-btn" data-value="立体悬挑式">🧩 立体悬挑式</button><button class="option-btn" data-value="平面招牌式">🪧 平面招牌式</button><button class="option-btn" data-value="中式屋檐">🏯 中式屋檐</button>
-      </div>
+    <div class="right-panel">
+        <div class="right-header"><h3>📋 生成结果</h3><span class="stats-badge" id="statsBadge">点击生成</span></div>
+        <div class="result-grid" id="resultsGrid"><div class="empty-state">👈 按需多选，点击生成</div></div>
     </div>
-
-    <div class="category-section">
-      <div class="section-title">🧱 门头材质系统 <span>可选多选</span></div>
-      <div id="materialContainer">
-        <div class="industry-block"><span class="industry-label">🔩 金属材质</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="不锈钢" data-parent="金属材质">不锈钢</button><button class="option-btn sub-btn" data-value="黑钛金" data-parent="金属材质">黑钛金</button><button class="option-btn sub-btn" data-value="铝塑板" data-parent="金属材质">铝塑板</button><button class="option-btn sub-btn" data-value="铝单板" data-parent="金属材质">铝单板</button><button class="option-btn sub-btn" data-value="镀锌板" data-parent="金属材质">镀锌板</button><button class="option-btn sub-btn" data-value="铜板" data-parent="金属材质">铜板</button></div></div>
-        <div class="industry-block"><span class="industry-label">🪵 木质系统</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="防腐木" data-parent="木质系统">防腐木</button><button class="option-btn sub-btn" data-value="木饰面" data-parent="木质系统">木饰面</button><button class="option-btn sub-btn" data-value="原木板" data-parent="木质系统">原木板</button><button class="option-btn sub-btn" data-value="碳化木" data-parent="木质系统">碳化木</button><button class="option-btn sub-btn" data-value="竹木" data-parent="木质系统">竹木</button></div></div>
-        <div class="industry-block"><span class="industry-label">🪨 石材系统</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="岩板" data-parent="石材系统">岩板</button><button class="option-btn sub-btn" data-value="大理石" data-parent="石材系统">大理石</button><button class="option-btn sub-btn" data-value="微水泥" data-parent="石材系统">微水泥</button><button class="option-btn sub-btn" data-value="花岗岩" data-parent="石材系统">花岗岩</button><button class="option-btn sub-btn" data-value="水磨石" data-parent="石材系统">水磨石</button></div></div>
-        <div class="industry-block"><span class="industry-label">🪟 玻璃系统</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="长虹玻璃" data-parent="玻璃系统">长虹玻璃</button><button class="option-btn sub-btn" data-value="艺术玻璃" data-parent="玻璃系统">艺术玻璃</button><button class="option-btn sub-btn" data-value="钢化玻璃" data-parent="玻璃系统">钢化玻璃</button><button class="option-btn sub-btn" data-value="夹胶玻璃" data-parent="玻璃系统">夹胶玻璃</button><button class="option-btn sub-btn" data-value="磨砂玻璃" data-parent="玻璃系统">磨砂玻璃</button></div></div>
-        <div class="industry-block"><span class="industry-label">📺 数字媒体系统</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="LED屏" data-parent="数字媒体系统">LED屏</button><button class="option-btn sub-btn" data-value="全息屏" data-parent="数字媒体系统">全息屏</button><button class="option-btn sub-btn" data-value="动态广告屏" data-parent="数字媒体系统">动态广告屏</button><button class="option-btn sub-btn" data-value="透明屏" data-parent="数字媒体系统">透明屏</button><button class="option-btn sub-btn" data-value="互动屏幕" data-parent="数字媒体系统">互动屏幕</button></div></div>
-        <div class="industry-block"><span class="industry-label">🎭 特殊造型材质</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="格栅" data-parent="特殊造型材质">格栅</button><button class="option-btn sub-btn" data-value="冲孔板" data-parent="特殊造型材质">冲孔板</button><button class="option-btn sub-btn" data-value="霓虹灯" data-parent="特殊造型材质">霓虹灯</button><button class="option-btn sub-btn" data-value="艺术装置" data-parent="特殊造型材质">艺术装置</button><button class="option-btn sub-btn" data-value="透光膜" data-parent="特殊造型材质">透光膜</button><button class="option-btn sub-btn" data-value="3D打印造型" data-parent="特殊造型材质">3D打印造型</button></div></div>
-      </div>
-    </div>
-
-    <div class="category-section">
-      <div class="section-title">🔤 招牌文字字体材质 <span>可选</span></div>
-      <div id="fontMaterialContainer">
-        <div class="industry-block"><span class="industry-label">金属类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="不锈钢字">不锈钢字</button><button class="option-btn sub-btn" data-value="钛金字">钛金字</button><button class="option-btn sub-btn" data-value="镀锌铁皮字">镀锌铁皮字</button><button class="option-btn sub-btn" data-value="铝板字">铝板字</button><button class="option-btn sub-btn" data-value="铝型材字">铝型材字</button><button class="option-btn sub-btn" data-value="黄铜字">黄铜字</button><button class="option-btn sub-btn" data-value="紫铜字">紫铜字</button></div></div>
-        <div class="industry-block"><span class="industry-label">亚克力类</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="亚克力实心字">亚克力实心字</button><button class="option-btn sub-btn" data-value="亚克力发光字">亚克力发光字</button><button class="option-btn sub-btn" data-value="亚克力背光字">亚克力背光字</button><button class="option-btn sub-btn" data-value="亚克力烤漆字">亚克力烤漆字</button></div></div>
-        <div class="industry-block"><span class="industry-label">发光字专用</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="树脂发光字">树脂发光字</button><button class="option-btn sub-btn" data-value="迷你发光字">迷你发光字</button><button class="option-btn sub-btn" data-value="无边框发光字">无边框发光字</button><button class="option-btn sub-btn" data-value="冲孔外露灯字">冲孔外露灯字</button></div></div>
-        <div class="industry-block"><span class="industry-label">PVC/雪弗板</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="PVC雪弗板实心字">PVC雪弗板实心字</button><button class="option-btn sub-btn" data-value="PVC烤漆字">PVC烤漆字</button></div></div>
-        <div class="industry-block"><span class="industry-label">木质/仿古</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="实木字">实木字</button><button class="option-btn sub-btn" data-value="防腐木字">防腐木字</button><button class="option-btn sub-btn" data-value="密度板雕刻字">密度板雕刻字</button></div></div>
-        <div class="industry-block"><span class="industry-label">特殊工艺</span><div class="sub-btn-group"><button class="option-btn sub-btn" data-value="水晶字">水晶字</button><button class="option-btn sub-btn" data-value="玻璃钢字">玻璃钢字</button><button class="option-btn sub-btn" data-value="霓虹灯字">霓虹灯字</button><button class="option-btn sub-btn" data-value="泡沫字">泡沫字</button></div></div>
-      </div>
-    </div>
-
-    <div class="category-section">
-      <div class="section-title">🎨 颜色选择 <span>可选</span></div>
-      <div id="colorContainer" class="style-btn-group">
-        <button class="option-btn" data-value="暖黄+红">🔥 暖黄+红</button><button class="option-btn" data-value="橙+深棕">🍊 橙+深棕</button><button class="option-btn" data-value="粉+玫瑰金">🌸 粉+玫瑰金</button><button class="option-btn" data-value="黑白灰">⬛ 黑白灰</button><button class="option-btn" data-value="霓虹紫+黑">🟣 霓虹紫+黑</button><button class="option-btn" data-value="蓝白清爽">🔵 蓝白清爽</button><button class="option-btn" data-value="中国红+金">🀄 中国红+金</button><button class="option-btn" data-value="原木+白">🪵 原木+白</button><button class="option-btn" data-value="莫兰迪色系">🎨 莫兰迪色系</button><button class="option-btn" data-value="金属灰+亮橙">⚙️ 金属灰+亮橙</button><button class="option-btn" data-value="玫瑰金+白">🌹 玫瑰金+白</button><button class="option-btn" data-value="香槟金+米">🥂 香槟金+米</button><button class="option-btn" data-value="炭黑+亮银">🖤 炭黑+亮银</button><button class="option-btn" data-value="象牙白+浅灰">🤍 象牙白+浅灰</button><button class="option-btn" data-value="墨绿+金">🌲 墨绿+金</button><button class="option-btn" data-value="深蓝+银">💙 深蓝+银</button>
-      </div>
-    </div>
-
-    <div class="category-section">
-      <div class="section-title">📐 门头布局 <span>可选</span></div>
-      <div class="style-btn-group" id="layoutGroup">
-        <button class="option-btn" data-value="单开间门头">🚪 单开间</button><button class="option-btn" data-value="双开间门头">🚪🚪 双开间</button><button class="option-btn" data-value="三开间门头">🚪🚪🚪 三开间</button><button class="option-btn" data-value="横向超宽">📏 横向超宽</button><button class="option-btn" data-value="竖向">📐 竖向</button><button class="option-btn" data-value="多层">📚 多层</button><button class="option-btn" data-value="叠加">🪜 叠加</button>
-      </div>
-    </div>
-
-    <!-- 新增门头层数选择 -->
-    <div class="category-section">
-      <div class="section-title">🏢 门头层数 <span>可选</span></div>
-      <div class="style-btn-group" id="layerGroup">
-        <button class="option-btn" data-value="一层">1️⃣ 一层</button>
-        <button class="option-btn" data-value="二层">2️⃣ 二层</button>
-        <button class="option-btn" data-value="三层">3️⃣ 三层</button>
-        <button class="option-btn" data-value="四层">4️⃣ 四层</button>
-        <button class="option-btn" data-value="五层">5️⃣ 五层</button>
-        <button class="option-btn" data-value="六层">6️⃣ 六层</button>
-      </div>
-    </div>
-
-    <div class="category-section">
-      <div class="section-title">🌗 时间场景 <span>可选</span></div>
-      <div class="style-btn-group" id="timeGroup">
-        <button class="option-btn" data-value="白天">☀️ 白天</button><button class="option-btn" data-value="黑夜">🌙 黑夜</button>
-      </div>
-    </div>
-
-    <div class="category-section">
-      <div class="section-title">📍 商圈环境</div>
-      <select id="districtSelect">
-        <option value="不限">🌐 不限（随机匹配）</option><option value="高端购物中心">高端购物中心</option><option value="临街独立商铺">临街独立商铺</option><option value="步行街">步行街</option><option value="社区底商">社区底商</option><option value="百货商场一层">百货商场一层</option><option value="艺术园区">艺术园区</option><option value="交通枢纽">交通枢纽</option><option value="地下商业街">地下商业街</option>
-      </select>
-    </div>
-
-    <div class="category-section">
-      <div class="section-title">💬 其他需求描述</div>
-      <textarea id="otherInput" class="other-textarea" placeholder="自定义其他需求（可留空）"></textarea>
-    </div>
-
-    <button class="generate-btn" id="generateBtn">⚡ 生成20组结构化提示词</button>
-  </div>
-
-  <div class="right-panel">
-    <div class="right-header"><h3>📋 生成结果</h3><span class="stats-badge" id="statsBadge">点击生成</span></div>
-    <div class="result-grid" id="resultsGrid"><div class="empty-state">👈 按需选择，点击生成</div></div>
-  </div>
 </div>
 
 <script>
@@ -230,27 +229,18 @@
       return a;
     }
 
-    function initSingleSubGroup(containerId) {
+    // 通用多选初始化（可指定选择器）
+    function initMultiSelect(containerId, selector = '.sub-btn') {
       const container = document.getElementById(containerId);
       if (!container) return;
       container.addEventListener('click', (e) => {
-        const btn = e.target.closest('.sub-btn');
-        if (!btn) return;
-        container.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-      });
-    }
-
-    function initMultiSelect(containerId) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
-      container.addEventListener('click', (e) => {
-        const btn = e.target.closest('.sub-btn');
+        const btn = e.target.closest(selector);
         if (!btn) return;
         btn.classList.toggle('selected');
       });
     }
 
+    // 通用单选初始化
     function initSingleSelect(containerId) {
       const container = document.getElementById(containerId);
       if (!container) return;
@@ -268,12 +258,6 @@
       return sel ? sel.getAttribute('data-value') : '';
     }
 
-    function getSelectedSubValue(containerId) {
-      const container = document.getElementById(containerId);
-      const sel = container ? container.querySelector('.sub-btn.selected') : null;
-      return sel ? { value: sel.getAttribute('data-value'), parent: sel.getAttribute('data-parent') } : { value: '', parent: '' };
-    }
-
     function getMultiSelectedValues(containerId) {
       const container = document.getElementById(containerId);
       const selected = container ? container.querySelectorAll('.sub-btn.selected') : [];
@@ -282,22 +266,20 @@
       return { values, parents: Array.from(parents) };
     }
 
-    const r = arr => arr[Math.floor(Math.random() * arr.length)];
-
-    function buildPrompt(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, layer, time, district, otherDesc) {
+    function buildPrompt(brand, subtitle, industryStr, styleStr, materialInfo, fontMaterialStr, colorStr, layout, layer, time, district, otherDesc) {
       let prompt = `【商业门头设计】\n`;
       if (brand) prompt += `\n品牌：${brand}`;
       if (subtitle) prompt += `\n副标题：${subtitle}（严格比例：字号为品牌名称的1/2，位于品牌名称正下方，禁止自动调整大小）`;
-      if (industry.value) prompt += `\n行业：${industry.parent}·${industry.value}`;
-      if (style) prompt += `\n风格：${style}`;
-      const scene = district === '不限' ? r(system.场景) : district;
+      if (industryStr) prompt += `\n行业：${industryStr}`;
+      if (styleStr) prompt += `\n风格：${styleStr}`;
+      const scene = district === '不限' ? system.场景[Math.floor(Math.random() * system.场景.length)] : district;
       prompt += `\n场景：${scene}`;
       if (materialInfo.values.length) {
         prompt += `\n材质系统：${materialInfo.parents.join('·')}`;
         prompt += `\n材质组合：${materialInfo.values.join(' + ')}`;
       }
-      if (fontMaterial) prompt += `\n招牌文字材质：${fontMaterial}`;
-      if (color) prompt += `\n颜色：${color}`;
+      if (fontMaterialStr) prompt += `\n招牌文字材质：${fontMaterialStr}`;
+      if (colorStr) prompt += `\n颜色：${colorStr}`;
       if (layout) {
         prompt += `\n布局：${layout}`;
         if (layoutDesc[layout]) prompt += `\n布局说明：${layoutDesc[layout]}`;
@@ -318,12 +300,12 @@
       return prompt;
     }
 
-    function generate20(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, layer, time, district, otherDesc) {
+    function generate20(params) {
       const set = new Set();
       const result = [];
       let safety = 0;
       while (result.length < 20 && safety < 800) {
-        const prompt = buildPrompt(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, layer, time, district, otherDesc);
+        const prompt = buildPrompt(...params);
         if (!set.has(prompt)) { set.add(prompt); result.push(prompt); }
         safety++;
       }
@@ -337,14 +319,35 @@
       const otherDesc = document.getElementById('otherInput').value.trim();
       const district = document.getElementById('districtSelect').value;
 
-      const industry = getSelectedSubValue('industryContainer');
-      const style = getSelectedValue('styleGroup');
+      // 获取多选行业
+      const industryBtns = document.querySelectorAll('#industryContainer .sub-btn.selected');
+      const industryItems = Array.from(industryBtns).map(b => `${b.dataset.parent}·${b.dataset.value}`);
+      const industryStr = industryItems.join(', ');
+
+      // 获取多选风格
+      const styleBtns = document.querySelectorAll('#styleGroup .option-btn.selected');
+      const styleItems = Array.from(styleBtns).map(b => b.dataset.value);
+      const styleStr = styleItems.join(', ');
+
+      // 材质多选（沿用原函数）
       const materialInfo = getMultiSelectedValues('materialContainer');
-      const fontMaterial = getSelectedSubValue('fontMaterialContainer').value;
-      const color = getSelectedValue('colorContainer');
+
+      // 获取多选字体材质
+      const fontBtns = document.querySelectorAll('#fontMaterialContainer .sub-btn.selected');
+      const fontItems = Array.from(fontBtns).map(b => b.dataset.value);
+      const fontMaterialStr = fontItems.join(', ');
+
+      // 获取多选颜色
+      const colorBtns = document.querySelectorAll('#colorContainer .option-btn.selected');
+      const colorItems = Array.from(colorBtns).map(b => b.dataset.value);
+      const colorStr = colorItems.join(', ');
+
+      // 单选：布局、层数、时间
       const layout = getSelectedValue('layoutGroup');
       const layer = getSelectedValue('layerGroup');
       const time = getSelectedValue('timeGroup');
+
+      const params = [brand, subtitle, industryStr, styleStr, materialInfo, fontMaterialStr, colorStr, layout, layer, time, district, otherDesc];
 
       const generateBtn = document.getElementById('generateBtn');
       generateBtn.disabled = true;
@@ -353,7 +356,7 @@
 
       setTimeout(() => {
         try {
-          const prompts = generate20(brand, subtitle, industry, style, materialInfo, fontMaterial, color, layout, layer, time, district, otherDesc);
+          const prompts = generate20(params);
           window.DATA = prompts;
           const resultsGrid = document.getElementById('resultsGrid');
           resultsGrid.innerHTML = '';
@@ -361,13 +364,13 @@
             const card = document.createElement('div');
             card.className = 'card';
             let badges = '';
-            if (industry.value) badges += `<span class="card-badge">${industry.parent}·${industry.value}</span>`;
+            if (industryStr) badges += `<span class="card-badge">${industryStr}</span>`;
             if (materialInfo.values.length) badges += `<span class="card-badge green">${materialInfo.values.join('+')}</span>`;
-            if (style) badges += `<span class="card-badge">${style}</span>`;
+            if (styleStr) badges += `<span class="card-badge">${styleStr}</span>`;
             if (layout) badges += `<span class="card-badge">${layout}</span>`;
             if (layer) badges += `<span class="card-badge">${layer}</span>`;
             if (time) badges += `<span class="card-badge">${time}</span>`;
-            if (color) badges += `<span class="card-badge">${color}</span>`;
+            if (colorStr) badges += `<span class="card-badge">${colorStr}</span>`;
             card.innerHTML = `
               <div class="card-header">
                 <div class="card-number">${idx+1}</div>
@@ -408,13 +411,16 @@
       setTimeout(() => { btn.textContent = '📋 复制'; btn.classList.remove('copied'); }, 1500);
     }
 
-    initSingleSubGroup('industryContainer');
-    initMultiSelect('materialContainer');
-    initSingleSubGroup('fontMaterialContainer');
-    initSingleSelect('colorContainer');
-    initSingleSelect('styleGroup');
+    // 初始化多选区域
+    initMultiSelect('industryContainer', '.sub-btn');
+    initMultiSelect('fontMaterialContainer', '.sub-btn');
+    initMultiSelect('materialContainer', '.sub-btn'); // 确保材质也是多选（原本就是）
+    initMultiSelect('styleGroup', '.option-btn');
+    initMultiSelect('colorContainer', '.option-btn');
+
+    // 初始化单选区域
     initSingleSelect('layoutGroup');
-    initSingleSelect('layerGroup'); // 新增层数组
+    initSingleSelect('layerGroup');
     initSingleSelect('timeGroup');
 
     document.getElementById('generateBtn').addEventListener('click', generatePrompts);
